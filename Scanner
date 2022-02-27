@@ -1,0 +1,11 @@
+import socket
+
+for port in range(80, 90):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex(("128.163.184.73", port)) # Here is where you can imput any ip address to scan and include any specific port you want to scan. Leaving it as 'port' will alow it to scan all ports specified in the range.
+
+    if result == 0:
+        print("Port " + str(port) + " is open")
+    else:
+        print("Port " + str(port) + " is closed")
+    sock.close()
